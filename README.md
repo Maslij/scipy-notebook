@@ -15,6 +15,34 @@ include the iframe's host (just the scheme, host and port).
 Change log levels for production.
 
 
+## Build the image
+
+If testing locally using minikube, make sure the docker command is pointing 
+to minikube's container registry:
+
+    eval $(minikube -p datahub docker-env)
+
+Build the image:
+
+    docker build -t "jupyter/scipy-notebook:latest" .
+
+This image is referenced in the JupyterHub configuration file, e.g.
+
+    singleuser:
+      storage:
+        type: none
+      cpu:
+        limit: .5
+        guarantee: .2
+      memory:
+        limit: 1G
+        guarantee: 0.5G
+      image:
+        name: jupyter/scipy-notebook
+        tag: latest
+        imagePullPolicy: Always
+
+
 ## Installed libraries
 
 * beautifulsoup4=4.8.*
