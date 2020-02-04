@@ -15,7 +15,7 @@ c.NotebookApp.allow_origin = '*'
 # Cache-Control - prevent https://github.com/nteract/nteract/issues/3850
 c.NotebookApp.tornado_settings = {
   'headers': {
-    'Content-Security-Policy': "frame-ancestors 'self' http://localhost:5000",
+    'Content-Security-Policy': "default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';",
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-xsrftoken, ETag',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
