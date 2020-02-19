@@ -16,6 +16,7 @@ c.NotebookApp.allow_origin = '*'
 c.NotebookApp.tornado_settings = {
   'headers': {
     'Content-Security-Policy': "frame-ancestors 'self' http://telstra-datahub:32574",
+    'X-Frame-Options:' "ALLOW-FROM http://telstra-datahub:32574",
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-xsrftoken, ETag',
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
